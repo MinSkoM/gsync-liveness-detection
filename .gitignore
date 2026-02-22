@@ -27,3 +27,11 @@ venv
 .venv
 env
 .env
+
+Model
+Vision.keras
+Motion.keras
+vision.bin
+vision.xml
+vision.onnx
+vision
