@@ -3,10 +3,11 @@ import React from 'react';
 import logoPng from './logo.PNG'
 
 // เปลี่ยน Type จาก SVGProps เป็น ImgHTMLAttributes
-export const LogoIcon: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = (props) => (
+export const LogoIcon: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({ className, ...props }) => (
   <img 
     src={logoPng} 
     alt="Logo" 
+    className={`w-full h-full object-contain ${className || ''}`}
     {...props} 
   />
 );
