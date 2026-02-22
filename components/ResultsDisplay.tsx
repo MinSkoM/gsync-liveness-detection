@@ -23,9 +23,9 @@ const ResultCard: React.FC<{ title: string; label: string; score: number; isSucc
 const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ results, onReset }) => {
   const isFinalSuccess = results.final_verdict === 'LIVENESS CONFIRMED';
   
-  // ✅ แก้ไข: เรียกผ่าน results.details ให้ตรงกับที่ Backend ส่งมา
+  // ✅ แก้ไข: เปลี่ยนจาก 'LIVE' เป็น 'REAL' ให้ตรงกับ main.py
   const motionSuccess = results.details?.motion?.label === 'REAL';
-  const visionSuccess = results.details?.vision?.label === 'LIVE';
+  const visionSuccess = results.details?.vision?.label === 'REAL'; 
 
   return (
     <div className="w-full flex flex-col items-center gap-6 text-center">
@@ -35,19 +35,25 @@ const ResultsDisplay: React.FC<ResultsDisplayProps> = ({ results, onReset }) => 
         <ShieldExclamationIcon className="w-24 h-24 text-red-400" />
       )}
       
-      <h2 className={`text-3xl font-extrabold ${isFinalSuccess ? 'text-green-300' : 'text-red-300'}`}>
-        {results.final_verdict}
-      </h2>
+      <div className="space-y-1">
+        <h2 className={`text-3xl font-extrabold ${isFinalSuccess ? 'text-green-300' : 'text-red-300'}`}>
+          {results.final_verdict}
+        </h2>
+        {/* แสดงคะแนน Fusion Score รวม */}
+        {results.fusion_score !== undefined && (
+          <p className="text-sm font-mono text-gray-400">
+            Fusion Score: {results.fusion_score.toFixed(4)}
+          </p>
+        )}
+      </div>
 
       <div className="w-full space-y-4 text-left">
-        {/* ✅ แก้ไข: ดึงข้อมูลจาก results.details.motion */}
         <ResultCard 
           title="Motion Analysis"
           label={results.details?.motion?.label || 'UNKNOWN'}
           score={results.details?.motion?.score || 0}
           isSuccess={motionSuccess}
         />
-        {/* ✅ แก้ไข: ดึงข้อมูลจาก results.details.vision */}
         <ResultCard 
           title="Vision Analysis"
           label={results.details?.vision?.label || 'UNKNOWN'}
