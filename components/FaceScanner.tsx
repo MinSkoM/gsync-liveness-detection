@@ -9,7 +9,7 @@ interface FaceScannerProps {
 }
 
 const MAX_FRAMES = 120;
-const SELECTED_LANDMARKS = [1, 33, 263]; 
+const SELECTED_LANDMARKS = [1, 33, 263, 234, 454, 152, 10];
 
 const FaceScanner: React.FC<FaceScannerProps> = ({ onScanComplete, onCancel }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -143,7 +143,10 @@ const FaceScanner: React.FC<FaceScannerProps> = ({ onScanComplete, onCancel }) =
             type: "LIVENESS_SCAN",
             scenario: "Production",
             data: collectedFramesRef.current,
-            meta: { userAgent: navigator.userAgent }
+            meta: { 
+                userAgent: navigator.userAgent,
+                camera_facing: 'user' // ส่งค่านี้เพื่อให้ Backend ปรับคูณ -1 สำหรับ Gyro/Accel ได้ถูกต้อง
+            }
         };
         onScanComplete(finalData, blob);
     };
