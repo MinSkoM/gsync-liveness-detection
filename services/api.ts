@@ -1,7 +1,7 @@
 import { LivenessData, LivenessApiResponse } from '../types';
 
 // ดึง Base URL จาก Environment Variable (หรือระบุตรงๆ สำหรับทดสอบ)
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://malika-shedable-recollectively.ngrok-free.dev';
+const API_BASE_URL = 'https://malika-shedable-recollectively.ngrok-free.dev' || process.env.REACT_APP_API_URL ;
 
 export const predictLiveness = async (
   videoBlob: Blob, 
