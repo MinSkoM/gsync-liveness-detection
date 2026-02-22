@@ -1,10 +1,14 @@
 
 import React from 'react';
+import logoPng from './logo.PNG';
 
-export const LogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zm1-3.5c-2.33 0-4.29 1.44-5 3.33.27.46.58.88 1 1.25.9-1.32 2.37-2.25 4-2.58v-.5zm5 2.25c-.42-.37-.73-.79-1-1.25-.9 1.32-2.37 2.25-4 2.58v.5c2.33 0 4.29-1.44 5-3.33zM12 4c-1.33 0-2.5.43-3.46 1.17a5.5 5.5 0 017.03 6.95C17.07 10.1 18 8.18 18 6.5 18 5.12 15.31 4 12 4z"/>
-  </svg>
+// เปลี่ยน Type จาก SVGProps เป็น ImgHTMLAttributes
+export const LogoIcon: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = (props) => (
+  <img 
+    src={logoPng} 
+    alt="Logo" 
+    {...props} 
+  />
 );
 
 export const ShieldCheckIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
