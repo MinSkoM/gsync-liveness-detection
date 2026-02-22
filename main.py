@@ -53,7 +53,8 @@ MAX_SEQ_LENGTH = 75
 NUM_LANDMARKS = 6
 NUM_SENSORS = 6
 NUM_BG = 3
-MOTION_THRESH = 0.65
+MOTION_THRESH_BALANCED = 0.65
+MOTION_THRESH_STRICT = 0.85 # Added to prevent NameError in endpoint!
 
 # Vision Config
 VISION_MODEL_PATH = "Model/vision/vision.xml"
@@ -301,7 +302,7 @@ async def predict(
         preds = motion_model.predict(inputs, verbose=0)
         motion_score = float(preds[0][0])
         
-        if motion_score >= MOTION_THRESH:
+        if motion_score >= MOTION_THRESH_BALANCED:
             motion_status = "REAL"
             
         logger.info(f"🧠 Motion Score: {motion_score:.4f} ({motion_status})")
