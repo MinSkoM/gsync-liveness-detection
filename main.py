@@ -16,7 +16,10 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 import cv2                  
 cv2.setNumThreads(0)        
 
-import mediapipe as mp      # <-- Moved back here!
+import mediapipe as mp
+# แทนที่จะเข้าผ่าน .python ให้เรียกผ่าน .solutions โดยตรง
+mp_face_detection = mp.solutions.face_detection
+mp_drawing = mp.solutions.drawing_utils
 import tensorflow as tf
 
 # 🔥 Hackathon Hotfix: Patch Keras

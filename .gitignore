@@ -35,3 +35,6 @@ vision.bin
 vision.xml
 vision.onnx
 vision
+
+__pycache__
+main.cpython-312.pyc
