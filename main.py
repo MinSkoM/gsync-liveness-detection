@@ -349,7 +349,7 @@ async def predict(
             "motion": {
                 "score": motion_score,
                 "label": motion_status,
-                "thresholds": {"balanced": MOTION_THRESH_BALANCED, "strict": MOTION_THRESH_STRICT}
+                "thresholds": {"balanced": MOTION_THRESH_BALANCED}
             },
             "vision": {
                 "score": vision_score,

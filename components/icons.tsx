@@ -7,7 +7,7 @@ export const LogoIcon: React.FC<React.ImgHTMLAttributes<HTMLImageElement>> = ({ 
   <img 
     src={logoPng} 
     alt="Logo" 
-    className={`w-full h-full object-contain ${className || ''}`}
+    className={`w-60 h-60 object-contain rounded-full  ${className || ''}`}
     {...props} 
   />
 );
@@ -25,8 +25,8 @@ export const ShieldExclamationIcon: React.FC<React.SVGProps<SVGSVGElement>> = (p
 );
 
 export const CheckCircleIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path fillRule="evenodd" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" clipRule="evenodd" />
   </svg>
 );
 

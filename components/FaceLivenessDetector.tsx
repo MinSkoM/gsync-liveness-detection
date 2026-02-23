@@ -126,9 +126,9 @@ const FaceLivenessDetector: React.FC = () => {
         return (
           <div className="text-center flex flex-col items-center gap-6">
             <LogoIcon className="w-24 h-24 text-indigo-400" />
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">Liveness Verification</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold tracking-tight">GSYNC Liveness Detection</h1>
             <p className="text-gray-400 max-w-md">
-              This system captures a short video and facial motion to verify you are a live person. Please ensure you are in a well-lit area.
+              [DEMO] ระบบ Liveness Detection ที่ใช้ AI วิเคราะห์ความสอดคล้องระหว่างใบหน้าและเซนเซอร์มือถือ
             </p>
             <button
               onClick={handleStartScan}
